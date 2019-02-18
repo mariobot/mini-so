@@ -12,7 +12,6 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 export class QuestionComponent implements OnInit {
   Questions: Question[];
   qst: Question;
-  templage: any;
   public modalRef: BsModalRef;
   myForm: FormGroup;
 
@@ -48,6 +47,24 @@ export class QuestionComponent implements OnInit {
       this.qst = response;
       this.ngOnInit();
       this.modalRef.hide();
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  public onUpvote(id) {
+    const url =  'https://localhost:5001/api/question/' + id + '/upvote';
+    this.http.patch(url, null).subscribe(response => {
+      this.ngOnInit();
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  public onDownvote(id) {
+    const url =  'https://localhost:5001/api/question/' + id + '/downvote';
+    this.http.patch(url, null).subscribe(response => {
+      this.ngOnInit();
     }, error => {
       console.log(error);
     });

@@ -69,5 +69,15 @@ namespace serve.Controllers
         question.Score++;
         return new JsonResult(question);
     }
+    [HttpPatch("{id}/downvote")]
+    public ActionResult DownvoteQuestionAsync(Guid id)
+    {
+        var question = questions.SingleOrDefault(t => t.Id == id);
+        if (question == null) return NotFound();
+ 
+        // Warning, this increment isnt thread-safe! Use Interlocked methods        
+        question.Score--;
+        return new JsonResult(question);
+    }
 }
 }
