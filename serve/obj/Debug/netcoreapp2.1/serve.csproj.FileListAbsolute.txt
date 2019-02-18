@@ -1,0 +1,14 @@
+C:\Users\mabotero\source\repos\so-signalr\serve\bin\Debug\netcoreapp2.1\serve.deps.json
+C:\Users\mabotero\source\repos\so-signalr\serve\bin\Debug\netcoreapp2.1\serve.runtimeconfig.json
+C:\Users\mabotero\source\repos\so-signalr\serve\bin\Debug\netcoreapp2.1\serve.runtimeconfig.dev.json
+C:\Users\mabotero\source\repos\so-signalr\serve\bin\Debug\netcoreapp2.1\serve.dll
+C:\Users\mabotero\source\repos\so-signalr\serve\bin\Debug\netcoreapp2.1\serve.pdb
+C:\Users\mabotero\source\repos\so-signalr\serve\obj\Debug\netcoreapp2.1\serve.csprojAssemblyReference.cache
+C:\Users\mabotero\source\repos\so-signalr\serve\obj\Debug\netcoreapp2.1\serve.csproj.CoreCompileInputs.cache
+C:\Users\mabotero\source\repos\so-signalr\serve\obj\Debug\netcoreapp2.1\serve.RazorAssemblyInfo.cache
+C:\Users\mabotero\source\repos\so-signalr\serve\obj\Debug\netcoreapp2.1\serve.RazorAssemblyInfo.cs
+C:\Users\mabotero\source\repos\so-signalr\serve\obj\Debug\netcoreapp2.1\serve.AssemblyInfoInputs.cache
+C:\Users\mabotero\source\repos\so-signalr\serve\obj\Debug\netcoreapp2.1\serve.AssemblyInfo.cs
+C:\Users\mabotero\source\repos\so-signalr\serve\obj\Debug\netcoreapp2.1\serve.RazorTargetAssemblyInfo.cache
+C:\Users\mabotero\source\repos\so-signalr\serve\obj\Debug\netcoreapp2.1\serve.dll
+C:\Users\mabotero\source\repos\so-signalr\serve\obj\Debug\netcoreapp2.1\serve.pdb
