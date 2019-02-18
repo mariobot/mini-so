@@ -1,8 +1,8 @@
 import { Question } from './../_models/Question';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-// import { QuestionServices } from '../../Services/question.service';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-question',
@@ -10,10 +10,22 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./question.component.css']
 })
 export class QuestionComponent implements OnInit {
-
   Questions: Question[];
+  qst: Question;
+  templage: any;
+  public modalRef: BsModalRef;
+  myForm: FormGroup;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private modalService: BsModalService,  private formBuilder: FormBuilder) {
+    this.createForm();
+  }
+
+  private createForm() {
+    this.myForm = this.formBuilder.group({
+      title: '',
+      question: ''
+    });
+  }
 
   ngOnInit() {
     this.http.get<Question[]>('https://localhost:5001/api/question').subscribe(response => {
@@ -21,9 +33,23 @@ export class QuestionComponent implements OnInit {
       console.log(response);
     }, error => {
       console.log(error);
-});
-
-
+    });
   }
 
+  public openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+
+  public submitForm() {
+    this.qst = new Question();
+    this.qst.title = this.myForm.value.title;
+    this.qst.body = this.myForm.value.question;
+    this.http.post<Question>('https://localhost:5001/api/question', this.qst).subscribe(response => {
+      this.qst = response;
+      this.ngOnInit();
+      this.modalRef.hide();
+    }, error => {
+      console.log(error);
+    });
+  }
 }

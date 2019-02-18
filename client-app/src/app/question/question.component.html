@@ -1,5 +1,55 @@
 
-<div *ngFor="let qst of Questions" >
-  <p>{{qst.title}}</p>
-  <p>{{qst.body}}</p>
+
+
+<div>
+  <h1>
+    This totally looks like Stack Overflow
+    <button class="btn btn-primary mt-2 float-right" (click)="openModal(template)" data-toggle="modal" data-target="#AddQuestion">
+      <i class="fas fa-plus"></i> Ask a question
+    </button>
+  </h1>
+  <ul class="list-group mt-4" *ngFor="let question of Questions">    
+      <li class="card container">
+          <div class="card-body row">
+            <div class="col-1">
+              <h3 class="text-center scoring">
+                  <button class="btn btn-link btn-lg p-0 d-block mx-auto"><i class="fas fa-sort-up" ></i></button>
+                  <span class="d-block mx-auto">{{ question.score }}</span>
+                  <button class="btn btn-link btn-lg p-0 d-block mx-auto"><i class="fas fa-sort-down" ></i></button>
+              </h3>
+            </div>
+            <div class="col-11">
+              <h5 class="card-title">{{ question.title }}</h5>
+              <p>{{ question.body }}</p>
+              <a href="#" class="card-link">
+                View question <span class="badge badge-success">{{ question.answerCount }}</span>
+              </a>
+            </div>
+          </div>
+      </li>
+  </ul>  
 </div>
+
+<!-- Modal -->
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Submint a Question</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="myForm" (ngSubmit)="submitForm()" > 
+        <div class="form-group">
+            <label>Title:</label>
+            <input type="text" class="form-control" formControlName="title" required placeholder="Please provide a title" >
+        </div>
+        <div class="form-group">
+            <label>Question:</label>
+            <input type="text" class="form-control" formControlName="question" required placeholder="Please provide a Question" >
+        </div>
+        <button class="btn btn-primary float-right ml-2" type="submit" [disabled]="!myForm.valid" >Submit</button>
+        <button class="btn btn-secondary float-right" type="reset" (click)="modalRef.hide()" >Cancel</button>
+      </form>
+    </div>
+</ng-template>
