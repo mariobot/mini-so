@@ -7,11 +7,15 @@ import { AppComponent } from './app.component';
 import { QuestionComponent } from './question/question.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { QuestanswerComponent } from './questanswer/questanswer.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
    declarations: [
       AppComponent,
-      QuestionComponent
+      QuestionComponent,
+      QuestanswerComponent,
+      HomeComponent
    ],
    imports: [
       BrowserModule,

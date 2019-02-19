@@ -21,7 +21,7 @@
             <div class="col-11">
               <h5 class="card-title">{{ question.title }}</h5>
               <p>{{ question.body }}</p>
-              <a href="#" class="card-link">
+              <a routerLink="/questanswer/{{ question.id }}" class="card-link">
                 View question <span class="badge badge-success">{{ question.answerCount }}</span>
               </a>
             </div>
@@ -44,8 +44,8 @@
             <input type="text" class="form-control" formControlName="title" required placeholder="Please provide a title" >
         </div>
         <div class="form-group">
-            <label>Question:</label>
-            <input type="text" class="form-control" formControlName="question" required placeholder="Please provide a Question" >
+            <label>Question:</label>            
+            <textarea class="form-control" rows="6" max-rows="10" formControlName="question" required placeholder="Please provide a Question"></textarea>
         </div>
         <button class="btn btn-primary float-right ml-2" type="submit" [disabled]="!myForm.valid" >Submit</button>
         <button class="btn btn-secondary float-right" type="reset" (click)="modalRef.hide()" >Cancel</button>

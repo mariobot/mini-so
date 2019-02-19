@@ -35,7 +35,7 @@ namespace serve.Controllers
     [HttpGet("{id}")]
     public ActionResult GetQuestion(Guid id)
     {
-        var question = questions.SingleOrDefault(t => t.Id == id);
+        var question = questions.SingleOrDefault(t => t.Id == id) ;        
         if (question == null) return NotFound();
  
         return new JsonResult(question);

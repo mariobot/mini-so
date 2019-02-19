@@ -1,0 +1,32 @@
+<div>
+    <ul class="list-group mt-4">    
+        <li class="card container">
+            <div class="card-body row">
+              <div class="col-1">
+                <h3 class="text-center scoring">                    
+                    <span class="d-block mx-auto">{{ qst?.score }}</span>                    
+                </h3>
+              </div>
+              <div class="col-11">
+                <h5 class="card-title">{{ qst?.title }}</h5>
+                <p>{{ qst?.body }}</p> 
+                Answers:
+                <li *ngFor="let ans of qst?.answers">
+                    <div class="row">                      
+                      <div class="col-9">                
+                        <p class="text text-success">{{ ans.body }}</p>                
+                      </div>
+                    </div>
+                </li> 
+                <div>
+                  <form [formGroup]="myForm" (submit)="SendAnswer()">
+                      <textarea formControlName="answer" cols="100" rows="5" required ></textarea>
+                      <br>
+                      <input type="submit" class="btn btn-success" [disabled]="!myForm.valid" value="Send Answer">
+                  </form>                  
+                </div>              
+              </div>
+            </div>
+        </li>        
+    </ul>  
+</div>

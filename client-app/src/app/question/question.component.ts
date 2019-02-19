@@ -1,5 +1,5 @@
 import { Question } from './../_models/Question';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
@@ -12,6 +12,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 export class QuestionComponent implements OnInit {
   Questions: Question[];
   qst: Question;
+  template: TemplateRef<any>;
   public modalRef: BsModalRef;
   myForm: FormGroup;
 
